@@ -1,0 +1,120 @@
+/*! Fonts from https://github.com/impallari/Libre-Franklin
+ *
+ * License: https://raw.githubusercontent.com/impallari/Libre-Franklin/master/OFL.txt
+ *          (SIL Open Font Licence version 1.1)
+ * Readme:  https://github.com/impallari/Libre-Franklin/blob/master/README.md
+ * Version: 1.015 (commit bfc61d6e403771c2e90aa6e0bd54975633974fb2)
+ *
+ * Original TTF converted to WOFF2 via https://github.com/google/woff2
+ */
+
+/* upright */
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 100;
+  scr: local('Libre Franklin Thin'), local('LibreFranklin-Thin'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Thin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Libre Franklin ExtraLight'), local('LibreFranklin-ExtraLight'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-ExtraLight.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Libre Franklin Light'), local('LibreFranklin-Light'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Light.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Libre Franklin'), local('LibreFranklin-Regular'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Libre Franklin Medium'), local('LibreFranklin-Medium'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Medium.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Libre Franklin SemiBold'), local('LibreFranklin-SemiBold'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-SemiBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Libre Franklin Bold'), local('LibreFranklin-Bold'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Bold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Libre Franklin ExtraBold'), local('LibreFranklin-ExtraBold'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-ExtraBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Libre Franklin Black'), local('LibreFranklin-Black'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Black.woff2) format('woff2');
+}
+/* Italic */
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 100;
+  src: local('Libre Franklin Thin Italic'), local('LibreFranklin-ThinItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-ThinItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 200;
+  src: local('Libre Franklin ExtraLight Italic'), local('LibreFranklin-ExtraLightItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-ExtraLightItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Libre Franklin Light Italic'), local('LibreFranklin-LightItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-LightItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Libre Franklin Italic'), local('LibreFranklin-Italic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-Italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Libre Franklin Medium Italic'), local('LibreFranklin-MediumItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-MediumItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Libre Franklin SemiBold Italic'), local('LibreFranklin-SemiBoldItalic'),  url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-SemiBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Libre Franklin Bold Italic'), local('LibreFranklin-BoldItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-BoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 800;
+  src: local('Libre Franklin ExtraBold Italic'), local('LibreFranklin-ExtraBoldItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-ExtraBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Libre Franklin';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Libre Franklin Black Italic'), local('LibreFranklin-BlackItalic'), url(https://webfonts.replaceme.com/LibreFranklin/1.015/LibreFranklin-BlackItalic.woff2) format('woff2');
+}

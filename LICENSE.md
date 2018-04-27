@@ -1,6 +1,10 @@
-MIT License
+The code in this repository is MIT. For the fonts, see the license files in
+the directories that contain them.
 
-Copyright (c) 2018 Alice Wonder
+MIT License
+===========
+
+Copyright (c) 2018 Alice Wonder Miscreations
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

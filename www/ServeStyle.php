@@ -136,6 +136,7 @@ $biggarray = explode('|', $family);
 foreach ($biggarray as $famstring) {
     $arr = explode(':', $famstring);
     $fam = strtolower(trim($arr[0]));
+    $fam = preg_replace('/\s+/', '', $fam);
     if (strlen($fam) > 0) {
         if (! in_array($fam, $fontFamilies)) {
             $fontFamilies[] = $fam;

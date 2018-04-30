@@ -152,6 +152,16 @@ $rootDir = dirname(__FILE__);
 
 foreach ($fontFamilies as $fam) {
     switch ($fam) {
+        case 'inconsolata':
+            $file = $rootDir . '/Inconsolata/webfont.css';
+            if (file_exists($file)) {
+                $cssFiles[] = $file;
+                $ts = filemtime($file);
+                if ($ts > $latest) {
+                    $latest = $ts;
+                }
+            }
+            break;
         case 'librefranklin':
             $file = $rootDir . '/LibreFranklin/webfont.css';
             if (file_exists($file)) {
@@ -175,7 +185,7 @@ foreach ($fontFamilies as $fam) {
         default:
             //this will be improved FIXME
             $arr = $redis->lrange('missingfonts', 0, -1);
-            if(! in_array($fam, $arr)) {
+            if (! in_array($fam, $arr)) {
                 $redis->rpush('missingfonts', $fam);
             }
     }

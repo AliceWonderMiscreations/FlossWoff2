@@ -1,0 +1,24 @@
+/*! Fonts from https://github.com/googlefonts/Inconsolata
+ *
+ * License: https://github.com/googlefonts/Inconsolata/blob/master/OFL.txt
+ *          (SIL Open Font Licence version 1.1)
+ * Readme:  https://github.com/googlefonts/Inconsolata/blob/master/README.md
+ * Version: 2.013 (commit 118fac929245c210192be8b1be695a6a65340e97)
+ *
+ * Original TTF converted to WOFF2 via https://github.com/google/woff2
+ */
+
+/* upright */
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(https://webfonts.replaceme.com/Inconsolata/2.013/Inconsolata-Regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(https://webfonts.replaceme.com/Inconsolata/2.013/Inconsolata-Bold.woff2) format('woff2');
+}

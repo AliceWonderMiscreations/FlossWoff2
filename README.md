@@ -9,6 +9,68 @@ The issue with Google Fonts is they track.
 It is highly doubtful that this project will ever completely cover what Google
 fonts does. Such is life.
 
+This project has three components:
+
+1. WOFF2 Font Files
+2. CSS server
+3. WordPress Plugin
+
+WOFF2 Font Files
+----------------
+
+Only WOFF2 webfonts are supported. Nutshell, there are four types of webfonts,
+listed below in largest file size to smallest.
+
+1. TrueType
+2. EOT
+3. WOFF
+4. WOFF2
+
+Every current vendor supported browser that has support for TTF and/or EOT font
+files also has support for WOFF and often WOFF2. There is no point in consuming
+disk space by hosting TrueType and/or EOT versions of the fonts.
+
+With respect to the WOFF format, there are only three browsers that are still
+supported by their vendors that support WOFF but do not support WOFF2:
+
+1. Internet Explorer 11
+2. Safari on El Capitan and older
+3. UC Browser
+
+Internet Explorer 11 is a dead product, it only receives security updates. The
+trident engine is no longer being developed.
+
+Safari on all supported version of iOS and on Mac OS Sierra support WOFF2. El
+Capitan (OS X 10.11) will probably be end of life in under two years.
+
+With respect to UC Browser, it is a security and privacy nightmare that no one
+should use.
+
+It just does not make sense to more than double the storage space just to
+support those browsers.
+
+### Font Families
+
+Only font families available from Google Fonts that have a license allowing
+them to be served without a royalty or fee will be part of this project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 WOFF2 Only
 ----------
 

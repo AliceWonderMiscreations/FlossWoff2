@@ -172,6 +172,12 @@ foreach ($fontFamilies as $fam) {
                 }
             }
             break;
+        default:
+            //this will be improved FIXME
+            $arr = $redis->lrange('missingfonts', 0, -1);
+            if(! in_array($fam, $arr)) {
+                $redis->rpush('missingfonts', $fam);
+            }
     }
 }
 

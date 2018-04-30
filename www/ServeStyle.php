@@ -5,9 +5,8 @@ declare(strict_types = 1);
  * Alternative to Google Fonts.
  *
  * This file finds and serves the appropriate CSS based upon the GET arguments.
- * This file is completely untested and probably broken.
  *
- * @package AWonderPHP\FlossWoff2
+ * @package AWonderPHP/FlossWoff2
  * @author  Alice Wonder <paypal@domblogger.net>
  * @license https://opensource.org/licenses/MIT MIT
  * @link    https://github.com/AliceWonderMiscreations/FlossWoff2
@@ -27,7 +26,6 @@ require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/St
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/InvalidSetupException.php');
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/SimpleCache.php');
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecacheredis/lib/SimpleCacheRedisSodium.php');
-
 
 use \AWonderPHP\FileWrapper\FileWrapper as FileWrapper;
 use \AWonderPHP\SimpleCacheRedis\SimpleCacheRedisSodium as SimpleCache;
@@ -91,8 +89,7 @@ if(! $servecss) {
 }
 */
 
-// okay, we can fulfill the request.
-
+// okay, we can attempt to fulfill the request.
 $requri = $_SERVER['QUERY_STRING'];
 
 if (! is_null($requri)) {
@@ -108,29 +105,13 @@ if (! is_null($requri)) {
 }
 // either no entry in cache or cached file didn't exist
 
-
-
-
-
-
-
 $family = '';
 
 if (isset($_GET['family'])) {
     $family = trim($_GET['family']);
 }
 
-
-
-
-
-
-
-
-
 $fontFamilies = array();
-
-
 
 $biggarray = explode('|', $family);
 foreach ($biggarray as $famstring) {
@@ -151,6 +132,12 @@ $latest = 0;
 $cssFiles = array();
 $rootDir = dirname(__FILE__);
 
+/**
+ * @var array $fontFamilyStatic An indexed array containing the path within the web root to the
+ *                              static CSS file associated with the font family. Defaults to a
+ *                              small set needed for a base WordPress install, additional fonts
+ *                              are added to the array via the "additionalFonts.php" file.
+ */
 $fontFamilyStatic = array(
     'inconsolata' => '/Inconsolata/webfont.css',
     'librefranklin' => '/LibreFranklin/webfont.css',
@@ -158,12 +145,12 @@ $fontFamilyStatic = array(
 );
 
 $customInclude = dirname(dirname(__FILE__)) . '/phpinc/additionalFonts.php';
-if(file_exists($customInclude)) {
+if (file_exists($customInclude)) {
     require($customInclude);
 }
 
 foreach ($fontFamilies as $fam) {
-    if(isset($fontFamilyStatic[$fam])) {
+    if (isset($fontFamilyStatic[$fam])) {
         $file = $rootDir . $fontFamilyStatic[$fam];
         if (file_exists($file)) {
             $cssFiles[] = $file;
@@ -181,51 +168,8 @@ foreach ($fontFamilies as $fam) {
     }
 }
 
-/*
-foreach ($fontFamilies as $fam) {
-    switch ($fam) {
-        case 'inconsolata':
-            $file = $rootDir . '/Inconsolata/webfont.css';
-            if (file_exists($file)) {
-                $cssFiles[] = $file;
-                $ts = filemtime($file);
-                if ($ts > $latest) {
-                    $latest = $ts;
-                }
-            }
-            break;
-        case 'librefranklin':
-            $file = $rootDir . '/LibreFranklin/webfont.css';
-            if (file_exists($file)) {
-                $cssFiles[] = $file;
-                $ts = filemtime($file);
-                if ($ts > $latest) {
-                    $latest = $ts;
-                }
-            }
-            break;
-        case 'notosans':
-            $file = $rootDir . '/NotoSans/webfont.css';
-            if (file_exists($file)) {
-                $cssFiles[] = $file;
-                $ts = filemtime($file);
-                if ($ts > $latest) {
-                    $latest = $ts;
-                }
-            }
-            break;
-        default:
-            //this will be improved FIXME
-            $arr = $redis->lrange('missingfonts', 0, -1);
-            if (! in_array($fam, $arr)) {
-                $redis->rpush('missingfonts', $fam);
-            }
-    }
-}
-*/
-
 if ($latest === 0) {
-  //404
+    header("HTTP/1.0 404 Not Found");
     exit;
 }
 
@@ -247,15 +191,17 @@ if (! file_exists($cachedFile)) {
         $string = preg_replace('/webfonts\.replaceme\.com/', $hostname, $string);
         $cssString = $cssString . $string . "\n\n";
     }
-
-  // todo - minify
-
-  // write to file
+    // write to file
     file_put_contents($cachedFile, $cssString);
-  // now it exists
+    // now it exists
 }
 
-$obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
+$styleCacheLife = 1209600;
+if ($refcacheTime === 900) {
+    $styleCacheLife = 900;
+}
+
+$obj = new FileWrapper($cachedFile, null, 'text/css', $styleCacheLife);
 $obj->sendfile();
 
 if (isset($reqkey)) {
@@ -264,5 +210,4 @@ if (isset($reqkey)) {
 }
 
 exit();
-
 ?>

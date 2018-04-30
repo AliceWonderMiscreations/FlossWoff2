@@ -163,8 +163,8 @@ foreach ($fontFamilies as $fam) {
             }
             break;
         case 'notosans':
+            $file = $rootDir . '/NotoSans/webfont.css';
             if (file_exists($file)) {
-                $file = $rootDir . '/LibreFranklin/webfont.css';
                 $cssFiles[] = $file;
                 $ts = filemtime($file);
                 if ($ts > $latest) {

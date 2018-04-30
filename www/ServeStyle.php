@@ -56,7 +56,7 @@ $cache = new SimpleCache($config);
 //  the referring website is http and not https.
 $referrer_host = '';
 if (isset($_SERVER['HTTP_REFERER'])) {
-    if ($referrer = parse_url($_SERVER['HTTP_REFERER']) {
+    if ($referrer = parse_url($_SERVER['HTTP_REFERER'])) {
         if (isset($referrer['host'])) {
             $referrer_host = $referrer['host'];
         }

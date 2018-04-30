@@ -117,7 +117,7 @@ if (! is_null($requri)) {
 $family = '';
 
 if (isset($_GET['family'])) {
-    $family = trim('family');
+    $family = trim($_GET['family']);
 }
 
 

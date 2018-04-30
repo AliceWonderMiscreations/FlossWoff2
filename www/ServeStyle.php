@@ -97,6 +97,8 @@ $requri = $_SERVER['QUERY_STRING'];
 
 if (! is_null($requri)) {
     $reqkey = hash('tiger160,4', $requri, false);
+    var_dump($requri);
+    exit;
     $cachedFile = $cache->get($reqkey);
     if (! is_null($cachedFile)) {
         if (file_exists($cachedFile)) {

@@ -26,7 +26,7 @@ require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/In
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/StrictTypeException.php');
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/InvalidSetupException.php');
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/SimpleCache.php');
-require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecacheredis/SimpleCacheRedisSodium.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecacheredis/lib/SimpleCacheRedisSodium.php');
 
 
 use \AWonderPHP\FileWrapper\FileWrapper as FileWrapper;

@@ -194,6 +194,7 @@ if (! file_exists($cachedFile)) {
 
     foreach ($cssFiles as $contentFile) {
         $string = trim(file_get_contents($contentFile));
+        $string = preg_replace('/webfonts\.replaceme\.com/', 'fonts.trippyid.com', $string);
         $cssString = $cssString . $string . "\n\n";
     }
 

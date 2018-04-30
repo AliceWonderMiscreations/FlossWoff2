@@ -47,7 +47,7 @@ $config = dirname(dirname(__FILE__)) . '/FONTSERVECACHE.json';
 if (! file_exists($config)) {
     header('HTTP/1.0 500 Internal Server Error');
 }
-$cache = new SimpleCache($config);
+$cache = new SimpleCache($redis, $config);
 
 // verify referring domain in white list. This is sent by client,
 //  so the server including the link tag can't modify it.

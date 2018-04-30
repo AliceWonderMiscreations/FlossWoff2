@@ -200,7 +200,7 @@ if (! file_exists($cachedFile)) {
   // todo - minify
 
   // write to file
-    file_put_contents($cachedFile, $string);
+    file_put_contents($cachedFile, $cssString);
   // now it exists
 }
 

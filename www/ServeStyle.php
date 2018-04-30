@@ -178,9 +178,6 @@ foreach ($fontFamilies as $fam) {
             if(! in_array($fam, $arr)) {
                 $redis->rpush('missingfonts', $fam);
             }
-            $test = $redis->lrange('missingfonts', 0, -1);
-            var_dump($test);
-            exit;
     }
 }
 

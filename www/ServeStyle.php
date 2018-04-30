@@ -186,7 +186,7 @@ $md5 = hash('tiger192,4', $string, false);
 
 /* now serve file if exists, build if doesn't */
 
-$cachedFile = dirname(dirname(__FILE__)) . '/csscache/' . $md5 . 'css';
+$cachedFile = dirname(dirname(__FILE__)) . '/csscache/' . $md5 . '.css';
 
 // testing testing 123
 var_dump($cachedFile);

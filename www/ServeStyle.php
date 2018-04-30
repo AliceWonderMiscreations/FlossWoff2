@@ -146,10 +146,42 @@ foreach ($biggarray as $famstring) {
 
 sort($fontFamilies);
 
+$refcacheTime = 43200;
 $latest = 0;
 $cssFiles = array();
 $rootDir = dirname(__FILE__);
 
+$fontFamilyStatic = array(
+    'inconsolata' => '/Inconsolata/webfont.css',
+    'librefranklin' => '/LibreFranklin/webfont.css',
+    'notosans' => '/NotoSans/webfont.css'
+);
+
+$customInclude = dirname(dirname(__FILE__)) . '/phpinc/additionalFonts.php';
+if(file_exists($customInclude)) {
+    require($customInclude);
+}
+
+foreach ($fontFamilies as $fam) {
+    if(isset($fontFamilyStatic[$fam])) {
+        $file = $rootDir . $fontFamilyStatic[$fam];
+        if (file_exists($file)) {
+            $cssFiles[] = $file;
+            $ts = filemtime($file);
+            if ($ts > $latest) {
+                $latest = $ts;
+            }
+        }
+    } else {
+        $arr = $redis->lrange('missingfonts', 0, -1);
+        if (! in_array($fam, $arr)) {
+            $redis->rpush('missingfonts', $fam);
+        }
+        $refcacheTime = 900;
+    }
+}
+
+/*
 foreach ($fontFamilies as $fam) {
     switch ($fam) {
         case 'inconsolata':
@@ -190,6 +222,7 @@ foreach ($fontFamilies as $fam) {
             }
     }
 }
+*/
 
 if ($latest === 0) {
   //404
@@ -227,7 +260,7 @@ $obj->sendfile();
 
 if (isset($reqkey)) {
     // cache for 12 hours
-    $cache->set($reqkey, $cachedFile, 43200);
+    $cache->set($reqkey, $cachedFile, $refcacheTime);
 }
 
 exit();

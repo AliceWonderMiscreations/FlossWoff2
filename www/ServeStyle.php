@@ -30,7 +30,7 @@ require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecacheredis/l
 
 
 use \AWonderPHP\FileWrapper\FileWrapper as FileWrapper;
-use \AWonderPHP\SimpleCacheRedusSodium as SimpleCache;
+use \AWonderPHP\SimpleCacheRedis\SimpleCacheRedisSodium as SimpleCache;
 
 /*
  * TODO - use a hash of the request uri as a key to see if matching cached CSS already is set

@@ -99,8 +99,6 @@ if (! is_null($requri)) {
     $reqkey = hash('tiger160,4', $requri, false);
     $cachedFile = $cache->get($reqkey);
     if (! is_null($cachedFile)) {
-        var_dump($cachedFile);
-        exit;
         if (file_exists($cachedFile)) {
             $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
             $obj->sendfile();
@@ -191,12 +189,13 @@ $md5 = hash('tiger192,4', $string, false);
 $cachedFile = dirname(dirname(__FILE__)) . '/csscache/' . $md5 . '.css';
 
 if (! file_exists($cachedFile)) {
-  // okay it didn't exist
+    // okay it didn't exist
+    $hostname = $_SERVER['SERVER_NAME'];
     $cssString = '';
 
     foreach ($cssFiles as $contentFile) {
         $string = trim(file_get_contents($contentFile));
-        $string = preg_replace('/webfonts\.replaceme\.com/', 'fonts.trippyid.com', $string);
+        $string = preg_replace('/webfonts\.replaceme\.com/', $hostname, $string);
         $cssString = $cssString . $string . "\n\n";
     }
 

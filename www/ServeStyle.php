@@ -18,8 +18,19 @@ require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/filewrapper/lib/In
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/filewrapper/lib/NullPropertyException.php');
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/filewrapper/lib/TypeErrorException.php');
 require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/filewrapper/lib/FileWrapper.php');
+// SimpleCache Redis
+require_once(dirname(dirname(__FILE__)) . '/vendor/psr/simple-cache/src/CacheException.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/psr/simple-cache/src/CacheInterface.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/psr/simple-cache/src/InvalidArgumentException.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/InvalidArgumentException.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/StrictTypeException.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/InvalidSetupException.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecache/lib/SimpleCache.php');
+require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecacheredis/SimpleCacheRedisSodium.php');
+
 
 use \AWonderPHP\FileWrapper\FileWrapper as FileWrapper;
+use \AWonderPHP\SimpleCacheRedusSodium as SimpleCache;
 
 /*
  * TODO - use a hash of the request uri as a key to see if matching cached CSS already is set
@@ -27,61 +38,149 @@ use \AWonderPHP\FileWrapper\FileWrapper as FileWrapper;
  *
  *        Use redis for this, not APCu, so it persists a server restart.
  */
+ 
+$redis = new \Redis();
+$redis->connect('127.0.0.1', 6379);
+
+// initiate cache
+$config = dirname(dirname(__FILE__)) . '/FONTSERVECACHE.json';
+if (! file_exists($config)) {
+    header('HTTP/1.0 500 Internal Server Error');
+}
+$cache = new SimpleCache($config);
+
+// verify referring domain in white list. This is sent by client,
+//  so the server including the link tag can't modify it.
+//  If header not sent, always allow, some users turn it off
+//  for privacy and that's okay. Also, it often is not sent when
+//  the referring website is http and not https.
+$referrer_host = '';
+if (isset($_SERVER['HTTP_REFERER']) {
+    if ($referrer = parse_url($_SERVER['HTTP_REFERER']) {
+        if (isset($referrer['host'])) {
+            $referrer_host = $referrer['host'];
+        }
+    }
+}
+$referrer_host = strtolower($referrer_host);
+
+// NOTE - if there is a problem of webmasters intentionally creating
+//  static CSS files to bypass this test, I will create a wrapper to
+//  serving the fonts that also checks. However since all fonts are
+//  free from Google Fonts, I suspect webmasters who don't want to
+//  pay for my mirror will use them rather than be sneaky.
+$servecss = true;
+if (strlen($referrer_host) > 0) {
+    $expires = $cache->get('exdate-' . $referrer_host);
+    if (is_null($expires)) {
+        $servecss = false;
+    } else {
+        // give a 3 week grace period
+        $tstamp = strtotime($expires) + 1814400;
+        if ($tstamp < time()) {
+            $servecss = false;
+            $cache->delete('exdate-' . $referrer_host);
+        }
+    }
+}
+// commented out for testing
+/*
+if(! $servecss) {
+    header('HTTP/1.0 402 Payment Required');
+    exit;
+}
+*/
+
+// okay, we can fulfill the request.
+
+$requri = $_SERVER['QUERY_STRING'];
+
+if (! is_null($requri)) {
+    $reqkey = hash('tiger160,4', $requri, false);
+    $cachedFile = $cache->get($reqkey);
+    if (! is_null($cachedFile)) {
+        if (file_exists($cachedFile)) {
+            $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
+            $obj->sendfile();
+            exit();
+        }
+    }
+}
+// either no entry in cache or cached file didn't exist
+
+
+
+
+
+
 
 $family = '';
 
-if(isset($_GET['family'])) {
+if (isset($_GET['family'])) {
     $family = trim('family');
 }
+
+
+
+
+
+
+
+
 
 $fontFamilies = array();
 
 
 
 $biggarray = explode('|', $family);
-foreach($biggarray as $famstring) {
-  $arr = explode(':', $famstring);
-  $fam = strtolower(trim($arr[0]));
-  if(strlen($fam) > 0) {
-    if(! in_array($fam, $fontFamilies)) {
-      $fontFamilies[] = $fam;
+foreach ($biggarray as $famstring) {
+    $arr = explode(':', $famstring);
+    $fam = strtolower(trim($arr[0]));
+    if (strlen($fam) > 0) {
+        if (! in_array($fam, $fontFamilies)) {
+            $fontFamilies[] = $fam;
+        }
     }
-  }
 }
 
 sort($fontFamilies);
+
+// testing testing 123
+var_dump($fontFamilies);
+exit;
+
 $latest = 0;
 $cssFiles = array();
 $rootDir = dirname(__FILE__);
 
-foreach($fontFamilies as $fam) {
-  switch($fam) {
-    case 'librefranklin':
-      $file = $rootDir . '/LibreFranklin/webfont.css';
-      if(file_exists($file)) {
-        $cssFiles[] = $file;
-        $ts = filemtime($file);
-        if($ts > $latest) {
-          $latest = $ts;
-        }
-      }
-      break;
-    case 'notosans':
-      if(file_exists($file)) {
-        $file = $rootDir . '/LibreFranklin/webfont.css';
-        $cssFiles[] = $file;
-        $ts = filemtime($file);
-        if($ts > $latest) {
-          $latest = $ts;
-        }
-      }
-      break;
-  }
+foreach ($fontFamilies as $fam) {
+    switch ($fam) {
+        case 'librefranklin':
+            $file = $rootDir . '/LibreFranklin/webfont.css';
+            if (file_exists($file)) {
+                $cssFiles[] = $file;
+                $ts = filemtime($file);
+                if ($ts > $latest) {
+                    $latest = $ts;
+                }
+            }
+            break;
+        case 'notosans':
+            if (file_exists($file)) {
+                $file = $rootDir . '/LibreFranklin/webfont.css';
+                $cssFiles[] = $file;
+                $ts = filemtime($file);
+                if ($ts > $latest) {
+                    $latest = $ts;
+                }
+            }
+            break;
+    }
 }
 
-if($latest === 0) {
+if ($latest === 0) {
   //404
-  exit;
+    exit;
 }
 
 $string = implode('|', $fontFamilies) . '_' . $latest;
@@ -91,24 +190,30 @@ $md5 = md5sum($string);
 /* now serve file if exists, build if doesn't */
 
 $cachedFile = dirname(dirname(__FILE__)) . '/csscache/' . $md5 . 'css';
-if(! file_exists($cachedFile)) {
+if (! file_exists($cachedFile)) {
   // okay it didn't exist
-  $cssString = '';
+    $cssString = '';
 
-  foreach($cssFiles as $contentFile) {
-    $string = trim(file_get_contents($contentFile));
-    $cssString = $cssString . $string . "\n\n";
-  }
+    foreach ($cssFiles as $contentFile) {
+        $string = trim(file_get_contents($contentFile));
+        $cssString = $cssString . $string . "\n\n";
+    }
 
   // todo - minify
 
   // write to file
-  file_put_contents($cachedFile, $string);
+    file_put_contents($cachedFile, $string);
   // now it exists
 }
 
 $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
 $obj->sendfile();
+
+if (isset($reqkey)) {
+    // cache for 12 hours
+    $cache->set($reqkey, $cachedFile, 43200);
+}
+
 exit();
 
 ?>

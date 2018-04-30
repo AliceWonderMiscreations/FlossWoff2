@@ -55,53 +55,73 @@ Only font families available from Google Fonts that have a license allowing
 them to be served without a royalty or fee will be part of this project.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-WOFF2 Only
+CSS Server
 ----------
 
-Only WOFF2 fonts will be served by this project. The reason has to do with
-space.
+This is a PHP script that takes the GET query args and turns them into a CSS
+file the client can use to fetch the fonts it needs to render the web page as
+intended.
 
-At this point, *most* clients that are capable of using web fonts support WOFF2
-so it does not make sense to radically increase the space used for the few
-that do not.
+In the spirit of KISS, I do things quite differently than Google does.
 
-For a list of clients capable of handling WOFF2:
+### Font Family
 
-[https://caniuse.com/#search=woff2](https://caniuse.com/#search=woff2)
+The CSS file is constructed based upon the requested font families, but the
+CSS script doesn't care what weights or variants are part of the query string,
+it just lists them all.
 
-At this point in time, the still supported browsers that not handle WOFF2:
+To me that makes more sense. The client will only download the fonts that it is
+actually going to use, so it does not hurt to list fonts weights and variants
+that it is not going to use.
 
-* Internet Explorer 11
-* Safari on El Capitan or older
-* Opera Mini *(does not support any webfonts)*
-* UC Browser for Android
+What it does is simplify the server-side generation, makes it easier for to
+cache the generated response, and compensates for mistakes where the web
+application has a bug resulting in it not specifying a weight or variant that
+it is going to want to use. Sure it makes the CSS file a little bigger, but it
+still is a relatively small percentage of the bytes needed for a typical web
+page.
 
-With the noted exception of Opera Mini, those clients do support WOFF but it
-would more than double the space needed to support them.
+### Font Subset
 
-Internet Explorer is end of life, it will soon be gone. Safari on supported
-versions of iOS and on Mac OS Sierra already support WOFF2.
+The specified font subset is also ignored. Google’s font server actually also
+ignores the subset on browsers that are capable of dealing with Unicode Ranges.
 
-I would be very surprised if UC Browser for Android does not support it in the
-future, but even if it does not, other browsers for Android do support WOFF2
-and UC Browser is not a major player and has many security and privacy issues,
-it really should not be used.
+As every browser that handles WOFF2 can also handle Unicode Ranges and this
+font server only supports WOFF2, it just does not make sense to even care about
+the requested font subset.
 
-With respect to Opera Mini, the point of Opera Mini is to be a very low
-bandwidth client. Webfont support is counter to that goal.
+Initially, this font server is not even splitting fonts up by range, but is
+just serving the entire font. That will change, at some point the fonts will be
+broken up in a similar fashion to how Google breaks them up, into smaller fonts
+with just the characters in particular a particular range.
+
+I will probably do it a little different, meaning I will probably have the
+range for `latin` and `latin-ext` in a single file, `greek` and `greek-ext` in
+a single file, etc.
+
+When the extended character set is needed, the base character set is almost
+also always needed so to me it makes more sense to reduce the HTTP requests and
+just have all the glyphs for the base and extended in the same font.
+
+Also, there will cases where only glyphs from the base set are needed on the
+landing page but glyphs from the extended set are needed as the result of an
+AJAX request. If the browser already has downloaded a font with glyphs from the
+extended set then the text won't initially render with a browser fallback as it
+downloads the extended set and then "jump" when the extended font is downloaded
+causing the text to re-render.
+
+To me it just does not seem worth it to safe a few kilobytes on some sites, so
+unless I see a really good argument for keeping them separate, when glyphs for
+a language are split into a base and extended set, I will just use a subset of
+the font has both.
+
+That is all in the future anyway, initially the CSS will just declare the
+complete font with every glyph the font covers.
+
+
+WordPress Plugin
+----------------
+
+I will detail the plugin here later. For now, just read the
+[README.md](wordpress/README.md) file.
+

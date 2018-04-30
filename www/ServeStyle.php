@@ -188,10 +188,6 @@ $md5 = hash('tiger192,4', $string, false);
 
 $cachedFile = dirname(dirname(__FILE__)) . '/csscache/' . $md5 . '.css';
 
-// testing testing 123
-var_dump($cachedFile);
-exit;
-
 if (! file_exists($cachedFile)) {
   // okay it didn't exist
     $cssString = '';
@@ -207,6 +203,10 @@ if (! file_exists($cachedFile)) {
     file_put_contents($cachedFile, $string);
   // now it exists
 }
+
+// testing testing 123
+var_dump($cachedFile);
+exit;
 
 $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
 $obj->sendfile();

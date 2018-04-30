@@ -1,0 +1,38 @@
+diff -ur twentyseventeen.orig/functions.php twentyseventeen/functions.php
+--- twentyseventeen.orig/functions.php	2017-10-04 16:53:47.000000000 -0700
++++ twentyseventeen/functions.php	2018-04-29 18:06:54.026754406 -0700
+@@ -255,6 +255,21 @@
+ }
+ add_action( 'template_redirect', 'twentyseventeen_content_width', 0 );
+ 
++// better way of doing it
++if (! function_exists('new_twentyseventeen_fonts_url')) :
++if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++	function new_twentyseventeen_fonts_url() {
++		$webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++		$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'twentyseventeen' );
++		if ( 'off' !== $libre_franklin ) {
++			$webfontGenerator->setFont('Libre+Franklin', array(300,400,600,800));
++		}
++		// add to head
++		$webfontGenerator->addWebfontToHead('twentyseventeen');
++	}
++}
++endif;
++
+ /**
+  * Register custom fonts.
+  */
+@@ -410,7 +425,11 @@
+  */
+ function twentyseventeen_scripts() {
+ 	// Add custom fonts, used in the main stylesheet.
+-	wp_enqueue_style( 'twentyseventeen-fonts', twentyseventeen_fonts_url(), array(), null );
++	if(function_exists('new_twentyseventeen_fonts_url')) {
++		new_twentyseventeen_fonts_url();
++	} else {
++		wp_enqueue_style( 'twentyseventeen-fonts', twentyseventeen_fonts_url(), array(), null );
++	}
+ 
+ 	// Theme stylesheet.
+ 	wp_enqueue_style( 'twentyseventeen-style', get_stylesheet_uri() );

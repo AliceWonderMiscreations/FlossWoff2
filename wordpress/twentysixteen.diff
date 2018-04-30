@@ -1,0 +1,45 @@
+diff -ur twentysixteen.orig/functions.php twentysixteen/functions.php
+--- twentysixteen.orig/functions.php	2017-10-04 16:53:47.000000000 -0700
++++ twentysixteen/functions.php	2018-04-29 17:29:33.238198764 -0700
+@@ -184,6 +184,28 @@
+ }
+ add_action( 'widgets_init', 'twentysixteen_widgets_init' );
+ 
++// better way of doing it
++if (! function_exists('new_twentysixteen_fonts_url')) :
++if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++	function new_twentysixteen_fonts_url() {
++		$webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++		if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'twentysixteen' ) ) {
++			$webfontGenerator->setFont('Merriweather', array(400,700,900));
++		}
++		if ( 'off' !== _x( 'on', 'Montserrat font: on or off', 'twentysixteen' ) ) {
++			// twentysixteen does not ask for italic
++			$webfontGenerator->setFont('Montserrat', array(400,700), false);
++		}
++		if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', 'twentysixteen' ) ) {
++			// twentysixteen does not ask for italic
++			$webfontGenerator->setFont('Inconsolata', array(400), false);
++		}
++		// add to head
++		$webfontGenerator->addWebfontToHead('twentysixteen');
++	}
++}
++endif;
++
+ if ( ! function_exists( 'twentysixteen_fonts_url' ) ) :
+ /**
+  * Register Google fonts for Twenty Sixteen.
+@@ -244,7 +266,11 @@
+  */
+ function twentysixteen_scripts() {
+ 	// Add custom fonts, used in the main stylesheet.
+-	wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
++	if(function_exists('new_twentysixteen_fonts_url')) {
++		new_twentysixteen_fonts_url();
++	} else {
++		wp_enqueue_style( 'twentysixteen-fonts', twentysixteen_fonts_url(), array(), null );
++	}
+ 
+ 	// Add Genericons, used in the main stylesheet.
+ 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );

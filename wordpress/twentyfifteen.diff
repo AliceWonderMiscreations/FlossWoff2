@@ -1,0 +1,58 @@
+diff -ur twentyfifteen.orig/functions.php twentyfifteen/functions.php
+--- twentyfifteen.orig/functions.php	2017-10-04 16:53:47.000000000 -0700
++++ twentyfifteen/functions.php	2018-04-29 14:05:16.943095114 -0700
+@@ -168,6 +168,41 @@
+ }
+ add_action( 'widgets_init', 'twentyfifteen_widgets_init' );
+ 
++// better way of doing it
++if (! function_exists('new_twentyfifteen_fonts_url')) :
++if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++	function new_twentyfifteen_fonts_url() {
++		$webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++		if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'twentyfifteen' ) ) {
++			$webfontGenerator->setFont('Noto+Sans', array(400,700));
++		}
++		if ( 'off' !== _x( 'on', 'Noto Serif font: on or off', 'twentyfifteen' ) ) {
++			$webfontGenerator->setFont('Noto+Serif', array(400,700));
++		}
++		if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', 'twentyfifteen' ) ) {
++			// twentyfifteen does not ask for italic for this font so set false flag
++			$webfontGenerator->setFont('Inconsolata', array(400,700), false);
++		}
++		$subsets = array();
++		$subset = _x( 'no-subset', 'Add new subset (greek, cyrillic, devanagari, vietnamese)', 'twentyfifteen' );
++		if ( 'cyrillic' == $subset ) {
++			$subsets[] = 'cyrillic';
++			$subsets[] = 'cyrillic-ext';
++		} elseif ( 'greek' == $subset ) {
++			$subsets[] = 'greek';
++			$subsets[] = 'greek-ext';
++		} elseif ( 'devanagari' == $subset ) {
++			$subsets[] = 'devanagari';
++		} elseif ( 'vietnamese' == $subset ) {
++			$subsets[] = 'vietnamese';
++		}
++		$webfontGenerator->setSubset($subsets);
++		// add to head
++		$webfontGenerator->addWebfontToHead('twentyfifteen');
++	}//end new_twentyfifteen_fonts_url()
++}
++endif;
++
+ if ( ! function_exists( 'twentyfifteen_fonts_url' ) ) :
+ /**
+  * Register Google fonts for Twenty Fifteen.
+@@ -251,7 +286,11 @@
+  */
+ function twentyfifteen_scripts() {
+ 	// Add custom fonts, used in the main stylesheet.
+-	wp_enqueue_style( 'twentyfifteen-fonts', twentyfifteen_fonts_url(), array(), null );
++	if(function_exists('new_twentyfifteen_fonts_url')) {
++		new_twentyfifteen_fonts_url();
++	} else {
++		wp_enqueue_style( 'twentyfifteen-fonts', twentyfifteen_fonts_url(), array(), null );
++	}
+ 
+ 	// Add Genericons, used in the main stylesheet.
+ 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.2' );

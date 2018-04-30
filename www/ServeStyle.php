@@ -98,9 +98,9 @@ $requri = $_SERVER['QUERY_STRING'];
 if (! is_null($requri)) {
     $reqkey = hash('tiger160,4', $requri, false);
     $cachedFile = $cache->get($reqkey);
-    var_dump($cachedFile);
-    exit;
     if (! is_null($cachedFile)) {
+        var_dump($cachedFile);
+        exit;
         if (file_exists($cachedFile)) {
             $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
             $obj->sendfile();
@@ -210,12 +210,10 @@ if (! file_exists($cachedFile)) {
 $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
 $obj->sendfile();
 
-/*
 if (isset($reqkey)) {
     // cache for 12 hours
     $cache->set($reqkey, $cachedFile, 43200);
 }
-*/
 
 exit();
 

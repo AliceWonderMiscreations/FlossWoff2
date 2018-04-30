@@ -146,10 +146,6 @@ foreach ($biggarray as $famstring) {
 
 sort($fontFamilies);
 
-// testing testing 123
-var_dump($fontFamilies);
-exit;
-
 $latest = 0;
 $cssFiles = array();
 $rootDir = dirname(__FILE__);
@@ -191,6 +187,11 @@ $md5 = md5sum($string);
 /* now serve file if exists, build if doesn't */
 
 $cachedFile = dirname(dirname(__FILE__)) . '/csscache/' . $md5 . 'css';
+
+// testing testing 123
+var_dump($cachedFile);
+exit;
+
 if (! file_exists($cachedFile)) {
   // okay it didn't exist
     $cssString = '';

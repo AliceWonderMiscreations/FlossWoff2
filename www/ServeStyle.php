@@ -182,7 +182,7 @@ if ($latest === 0) {
 
 $string = implode('|', $fontFamilies) . '_' . $latest;
 // this is what we'll cash with a hash of the request uri
-$md5 = md5sum($string);
+$md5 = hash('tiger192,4', $string, false);
 
 /* now serve file if exists, build if doesn't */
 

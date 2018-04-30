@@ -205,17 +205,15 @@ if (! file_exists($cachedFile)) {
   // now it exists
 }
 
-// testing testing 123
-var_dump($cachedFile);
-exit;
-
 $obj = new FileWrapper($cachedFile, null, 'text/css', 1209600);
 $obj->sendfile();
 
+/*
 if (isset($reqkey)) {
     // cache for 12 hours
     $cache->set($reqkey, $cachedFile, 43200);
 }
+*/
 
 exit();
 

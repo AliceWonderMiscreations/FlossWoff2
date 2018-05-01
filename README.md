@@ -85,7 +85,7 @@ page.
 
 ### Font Subset
 
-The specified font subset is also ignored. Google’s font server actually also
+The specified font subset is ignored. Google’s font server actually also
 ignores the subset on browsers that are capable of dealing with Unicode Ranges.
 
 As every browser that handles WOFF2 can also handle Unicode Ranges and this

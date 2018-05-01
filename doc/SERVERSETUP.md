@@ -137,6 +137,13 @@ fingerprints if your DNS is secured by DNSSEC and you want to use DANE to
 secure your certificate.
 
 
+Add Allowed Referrer Domains
+----------------------------
+
+The utility to do this still needs to be written. For now the code in the
+`ServeStyle.php` that enforces the referrer is both untested and not used.
+
+
 Adding Fonts
 ------------
 

@@ -29,13 +29,6 @@ require_once(dirname(dirname(__FILE__)) . '/vendor/awonderphp/simplecacheredis/l
 
 use \AWonderPHP\FileWrapper\FileWrapper as FileWrapper;
 use \AWonderPHP\SimpleCacheRedis\SimpleCacheRedisSodium as SimpleCache;
-
-/*
- * TODO - use a hash of the request uri as a key to see if matching cached CSS already is set
- *        and only calculate the matching CSS if it isn't set or cached CSS doesn't exist.
- *
- *        Use redis for this, not APCu, so it persists a server restart.
- */
  
 $redis = new \Redis();
 $redis->connect('127.0.0.1', 6379);

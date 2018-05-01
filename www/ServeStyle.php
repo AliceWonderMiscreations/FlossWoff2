@@ -143,6 +143,7 @@ $fontFamilyStatic = array(
     'librefranklin' => '/LibreFranklin/webfont.css',
     'merriweather' => '/Merriweather/webfont.css',
     'montserrat' => '/Montserrat/webfont.css',
+    'montserratalternates' => '/Montserrat/webfont-alternates.css',
     'notomono' => '/NotoMono/webfont.css',
     'notosans' => '/NotoSans/webfont.css',
     'notosanscondensed' => '/NotoSans/webfont-condensed.css',

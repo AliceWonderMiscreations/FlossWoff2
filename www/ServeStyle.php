@@ -141,7 +141,8 @@ $rootDir = dirname(__FILE__);
 $fontFamilyStatic = array(
     'inconsolata' => '/Inconsolata/webfont.css',
     'librefranklin' => '/LibreFranklin/webfont.css',
-    'notosans' => '/NotoSans/webfont.css'
+    'notosans' => '/NotoSans/webfont.css',
+    'notoserif' => '/NotoSerif/webfont.css'
 );
 
 $customInclude = dirname(dirname(__FILE__)) . '/phpinc/additionalFonts.php';

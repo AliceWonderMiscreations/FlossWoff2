@@ -146,7 +146,10 @@ $fontFamilyStatic = array(
     'notosanscondensed' => '/NotoSans/webfont-condensed.css',
     'notosansextracondensed' => '/NotoSans/webfont-extracondensed.css',
     'notosanssemicondensed' => '/NotoSans/webfont-semicondensed.css',
-    'notoserif' => '/NotoSerif/webfont.css'
+    'notoserif' => '/NotoSerif/webfont.css',
+    'notoserifcondensed' => '/NotoSerif/webfont-condensed.css',
+    'notoserifextracondensed' => '/NotoSerif/webfont-extracondensed.css',
+    'notoserifsemicondensed' => '/NotoSerif/webfont-semicondensed.css'
 );
 
 $customInclude = dirname(dirname(__FILE__)) . '/phpinc/additionalFonts.php';

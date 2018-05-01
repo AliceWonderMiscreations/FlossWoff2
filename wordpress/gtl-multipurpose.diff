@@ -1,0 +1,75 @@
+diff -ur gtl-multipurpose.orig/functions.php gtl-multipurpose/functions.php
+--- gtl-multipurpose.orig/functions.php	2018-04-30 22:10:51.796086683 -0700
++++ gtl-multipurpose/functions.php	2018-04-30 23:05:21.227136495 -0700
+@@ -116,7 +116,11 @@
+  */
+ function gtl_multipurpose_scripts() {
+ 	
+-	wp_enqueue_style( 'gtl-multipurpose-font' , gtl_multipurpose_get_font() , array(), '20151215' );
++	if(function_exists('new_gtl_multipurpose_get_font')) {
++		new_gtl_multipurpose_get_font();
++	} else {
++		wp_enqueue_style( 'gtl-multipurpose-font' , gtl_multipurpose_get_font() , array(), '20151215' );
++	}
+ 
+     wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), '20151215' );
+ 
+diff -ur gtl-multipurpose.orig/inc/template-tags.php gtl-multipurpose/inc/template-tags.php
+--- gtl-multipurpose.orig/inc/template-tags.php	2018-04-30 22:10:51.789086821 -0700
++++ gtl-multipurpose/inc/template-tags.php	2018-04-30 23:15:35.456858684 -0700
+@@ -7,6 +7,55 @@
+  * @package GTL_Multipurpose
+  */
+ 
++if (! function_exists( 'new_gtl_multipurpose_get_font' )) :
++if(class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++  function new_gtl_multipurpose_get_font() {
++    $familyAdded = 0;
++    $webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++    $font = esc_attr(get_theme_mod('body_font_name'));
++    if($font) {
++      // we have to parse it - consider putting a function in class that does this
++      $familyStrings = explode('|', $font);
++      foreach($familyStrings as $string) {
++        $italic = false;
++        $weights = array();
++        $arr = explode(':', $string);
++        $family = trim($arr[0]);
++        if(count($arr) > 1) {
++          $variants = $arr[1];
++          $arr = explode(',', $variants);
++          foreach($arr as $param) {
++            $param = trim(strtolower($param));
++            //check for italic
++            $test = substr($param, -2);
++            if($test === '0i') {
++              $italic = true;
++            } elseif(substr_count($param, 'italic') > 0) {
++              $italic = true;
++            }
++            $s = array('/0i$/', 'italic');
++            $r = array('0', '');
++            $param = preg_replace($s, $r, $param);
++            if(strlen($param) > 0) {
++              $weights[] = $param;
++            }
++          }
++        }
++        if(strlen($family) > 0) {
++          $webfontGenerator->setFont($family, $weights, $italic);
++          $familyAdded++;
++        }
++      }  
++    }
++    if($familyAdded === 0) {
++      $webfontGenerator->setFont('Libre+Franklin', array(100,200,300,400,500,600,700,800,900), false);
++    }
++    // add to head
++    $webfontGenerator->addWebfontToHead('gtl-multipurpose');
++  }//end new_gtl_multipurpose_get_font()
++}
++endif;
++
+ if( ! function_exists( 'gtl_multipurpose_get_font' ) ){
+ 
+ 	function gtl_multipurpose_get_font(){

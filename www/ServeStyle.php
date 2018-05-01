@@ -136,11 +136,12 @@ $rootDir = dirname(__FILE__);
  * @var array $fontFamilyStatic An indexed array containing the path within the web root to the
  *                              static CSS file associated with the font family. Defaults to a
  *                              small set needed for a base WordPress install, additional fonts
- *                              are added to the array via the "additionalFonts.php" file.
+ *                              can be added to the array via the "additionalFonts.php" file.
  */
 $fontFamilyStatic = array(
     'inconsolata' => '/Inconsolata/webfont.css',
     'librefranklin' => '/LibreFranklin/webfont.css',
+    'notomono' => '/NotoMono/webfont.css',
     'notosans' => '/NotoSans/webfont.css',
     'notoserif' => '/NotoSerif/webfont.css'
 );

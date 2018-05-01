@@ -1,0 +1,17 @@
+/*! Fonts from http://www.google.com/get/noto
+ *
+ * License: http://scripts.sil.org/OFL
+ *          (SIL Open Font Licence version 1.1)
+ * Readme:  https://github.com/googlei18n/noto-fonts/blob/master/README.md
+ * Version: 2017-10-24 from Commit 8ef14e6c606a7a0ef3943b9ca01fd49445620d79
+ *
+ * Original TTF converted to WOFF2 via https://github.com/google/woff2
+ */
+
+/* upright */
+@font-face {
+  font-family: 'Noto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Mono'), local('NotoMono'), url(https://webfonts.replaceme.com/NotoMono/20171024/NotoMono-Regular.woff2) format('woff2');
+}

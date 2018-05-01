@@ -126,8 +126,15 @@ That is why I created this script:
 
 [letsencrypt.sh](https://gist.github.com/AliceWonderMiscreations/de1a37b41df545eba3b6d6e77f6f29fb)
 
-I run that manually and it creates the private key and gets the certs, but it
-does not touch server configuration files.
+Note that that particular script only updates the private key if it is nearing
+a year in age, that makes DANE easier. So when you regenerate the cert every
+three months, do not update the private key in your Apache config to the new
+date unless a new private key was actually generated.
+
+I run that script manually and it creates the private key and gets the certs,
+but it does not touch server configuration files. It also generates the DANE
+fingerprints if your DNS is secured by DNSSEC and you want to use DANE to
+secure your certificate.
 
 
 Adding Fonts

@@ -29,7 +29,7 @@ How to patch a theme:
 
     cp twentyseventeen.diff /path/to/wp-content/themes/twentyseventeen/
     pushd /path/to/wp-content/themes/twentyseventeen/
-    patch -p0 < twentyseventeen.diff
+    patch -p1 < twentyseventeen.diff
 
 You may need to use `sudo` for the `patch` command, depending upon the file
 permissions.

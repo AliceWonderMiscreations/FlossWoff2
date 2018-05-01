@@ -1,6 +1,8 @@
 FlossWoff2
 ==========
 
+__BEAR WITH ME - BETTER DOCUMENTATION COMING__
+
 The goal of this project is to provide an alternative to Google Fonts for fonts
 that are licensed under a FLOSS license.
 
@@ -40,7 +42,7 @@ supported by their vendors that support WOFF but do not support WOFF2:
 Internet Explorer 11 is a dead product, it only receives security updates. The
 trident engine is no longer being developed.
 
-Safari on all supported version of iOS and on Mac OS Sierra support WOFF2. El
+Safari on all supported version of iOS and on Mac OS Sierra supports WOFF2. El
 Capitan (OS X 10.11) will probably be end of life in under two years.
 
 With respect to UC Browser, it is a security and privacy nightmare that no one

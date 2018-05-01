@@ -141,6 +141,7 @@ $rootDir = dirname(__FILE__);
 $fontFamilyStatic = array(
     'inconsolata' => '/Inconsolata/webfont.css',
     'librefranklin' => '/LibreFranklin/webfont.css',
+    'merriweather' => '/Merriweather/webfont.css',
     'notomono' => '/NotoMono/webfont.css',
     'notosans' => '/NotoSans/webfont.css',
     'notosanscondensed' => '/NotoSans/webfont-condensed.css',

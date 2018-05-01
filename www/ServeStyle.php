@@ -144,6 +144,7 @@ $fontFamilyStatic = array(
     'notomono' => '/NotoMono/webfont.css',
     'notosans' => '/NotoSans/webfont.css',
     'notosanscondensed' => '/NotoSans/webfont-condensed.css',
+    'notosansextracondensed' => '/NotoSans/webfont-extracondensed.css',
     'notoserif' => '/NotoSerif/webfont.css'
 );
 

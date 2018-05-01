@@ -143,6 +143,7 @@ $fontFamilyStatic = array(
     'librefranklin' => '/LibreFranklin/webfont.css',
     'notomono' => '/NotoMono/webfont.css',
     'notosans' => '/NotoSans/webfont.css',
+    'notosanscondensed' => '/NotoSans/webfont-condensed.css',
     'notoserif' => '/NotoSerif/webfont.css'
 );
 

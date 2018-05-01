@@ -1,0 +1,123 @@
+/*! Fonts from http://www.google.com/get/noto
+ *
+ * License: http://scripts.sil.org/OFL
+ *          (SIL Open Font Licence version 1.1)
+ * Readme:  https://github.com/googlei18n/noto-fonts/blob/master/README.md
+ * Version: 2017-10-24 from Commit 8ef14e6c606a7a0ef3943b9ca01fd49445620d79
+ *
+ * Original TTF converted to WOFF2 via https://github.com/google/woff2
+ */
+ 
+/* Condensed do not seem to be served by Google Fonts ??? */
+
+/* upright */
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Noto Sans Condensed Thin'), local('NotoSans-CondensedThin'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedThin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Noto Sans Condensed ExtraLight'), local('NotoSans-CondensedExtraLight'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedExtraLight.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Noto Sans Condensed Light'), local('NotoSans-CondensedLight'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedLight.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Noto Sans Condensed'), local('NotoSans-Condensed'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-Condensed.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Noto Sans Condensed Medium'), local('NotoSans-CondensedMedium'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedMedium.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Noto Sans Condensed SemiBold'), local('NotoSans-CondensedSemiBold'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedSemiBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Noto Sans Condensed Bold'), local('NotoSans-CondensedBold'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Noto Sans Condensed ExtraBold'), local('NotoSans-CondensedExtraBold'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedExtraBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Noto Sans Condensed Black'), local('NotoSans-CondensedBlack'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedBlack.woff2) format('woff2');
+}
+
+/* italic */
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 100;
+  src: local('Noto Sans Condensed Thin Italic'), local('NotoSans-CondensedThinItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedThinItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 200;
+  src: local('Noto Sans Condensed ExtraLight Italic'), local('NotoSans-CondensedExtraLightItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedExtraLightItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Noto Sans Condensed Light Italic'), local('NotoSans-CondensedLightItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedLightItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Noto Sans Condensed Italic'), local('NotoSans-CondensedItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Noto Sans Condensed Medium Italic'), local('NotoSans-CondensedMediumItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedMediumItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Noto Sans Condensed SemiBold Italic'), local('NotoSans-CondensedSemiBoldItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedSemiBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Noto Sans Condensed Bold Italic'), local('NotoSans-CondensedBoldItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 800;
+  src: local('Noto Sans Condensed ExtraBoldItalic'), local('NotoSans-CondensedExtraBoldItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedExtraBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Noto Sans Condensed';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Noto Sans Condensed Black Italic'), local('NotoSans-CondensedBlackItalic'), url(https://webfonts.replaceme.com/NotoSans/20171024/NotoSans-CondensedBlackItalic.woff2) format('woff2');
+}

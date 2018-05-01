@@ -1,0 +1,121 @@
+/*! Fonts from https://github.com/JulietaUla/Montserrat
+ *
+ * License: http://scripts.sil.org/OFL
+ *          (SIL Open Font Licence version 1.1)
+ * Readme:  https://github.com/JulietaUla/Montserrat/blob/master/README.md
+ * Version: 2.003 from Commit 21047be7ebcae5e71328358fcf20566cb85383ec
+ *
+ * WOFF2 from project github
+ */
+
+/* upright */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Montserrat Thin'), local('Montserrat-Thin'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Thin.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Montserrat ExtraLight'), local('Montserrat-ExtraLight'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-ExtraLight.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Montserrat Light'), local('Montserrat-Light'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Light.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Regular.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Montserrat Medium'), local('Montserrat-Medium'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Medium.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-SemiBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Bold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Montserrat ExtraBold'), local('Montserrat-ExtraBold'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-ExtraBold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Montserrat Black'), local('Montserrat-Black'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Black.woff2) format('woff2');
+}
+
+/* italic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 100;
+  src: local('Montserrat ThinItalic'), local('Montserrat-ThinItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-ThinItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 200;
+  src: local('Montserrat ExtraLightItalic'), local('Montserrat-ExtraLightItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-ExtraLightItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Montserrat LightItalic'), local('Montserrat-LightItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-LightItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Montserrat Italic'), local('Montserrat-Italic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-Italic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Montserrat MediumItalic'), local('Montserrat-MediumItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-MediumItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Montserrat SemiBoldItalic'), local('Montserrat-SemiBoldItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-SemiBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Montserrat BoldItalic'), local('Montserrat-BoldItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-BoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 800;
+  src: local('Montserrat ExtraBoldItalic'), local('Montserrat-ExtraBoldItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-ExtraBoldItalic.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Montserrat BlackItalic'), local('Montserrat-BlackItalic'), url(https://webfonts.replaceme.com/Montserrat/7.200/Montserrat-BlackItalic.woff2) format('woff2');
+}

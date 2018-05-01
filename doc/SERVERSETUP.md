@@ -36,7 +36,7 @@ directory to install the dependencies from composer:
 
     composer install --no-dev
 
-You can leave of the `--no-dev` but it results in a bunch of extra crap being
+You can leave off the `--no-dev` but it results in a bunch of extra crap being
 installed that you do not need.
 
 Cache Key Generation
@@ -44,7 +44,7 @@ Cache Key Generation
 
 This project uses an encrypted Redis PSR-16 cache. Strictly from a privacy
 point of view the cache does not need to be encrypted, but since most servers
-use XEON and XEON has AES-NI in the CPU that makes AES encryption vey very
+use Xeon and Xeon has AES-NI in the CPU that makes AES encryption vey very
 fast, I believe it is best practice to encrypt memory and database cache just
 in the event they ever do end up being used for something in the future where
 it would hurt privacy or security if there was a cache leak.
@@ -52,16 +52,16 @@ it would hurt privacy or security if there was a cache leak.
 Anyway, you will need to make a configuration file that holds the encryption
 key for the cache.
 
-run the following command to do so:
+Run the following command inside the `FlossWoff2` directory to do so:
 
     vendor/bin/makeRedisSodiumConfig FONTSERVECACHE
 
 You can alternatively copy the existing `FONTSERVECACHE.dist.json` to
 `FONTSERVECACHE.json` but that would mean you are using a private key that is
 not very private, since it is
-[public on github](https://github.com/AliceWonderMiscreations/FlossWoff2/blob/master/FONTSERVECACHE.dist.json)
+[public on github](https://github.com/AliceWonderMiscreations/FlossWoff2/blob/master/FONTSERVECACHE.dist.json).
 
-It is okay to change the
+Inside the configuration file, it is okay to change the
 
     "strict": false
 
@@ -72,7 +72,8 @@ to
 This code is written clean, the `makeRedisSodiumConfig` utility defaults to
 false because PSR-16 does not mandate strict enforcement of types, so to work
 as a drop in replacement for other PSR-16 cache interfaces, it has to default
-to a mode that does not mandate strict enforcement of types.
+to a mode that does not mandate strict enforcement of types. But FlossWoff2 is
+careful about types.
 
 
 Apache Configuration

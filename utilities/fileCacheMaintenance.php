@@ -18,15 +18,13 @@ $uid = posix_getuid();
 if($uid === 0) {
     echo "Do not run this as r00t, you t00l!\n";
     exit(1);
-} else {
-    echo "Running with UID " . $uid . "\n";
 }
 
 $now = time();
 // this staggers things so massive deleting does not happen of potentially
 // good files
-$max = $now - (3 * 30 * 24 * 3600);
-$min = $now - (7 * 30 * 24 * 3600);
+$max = $now - (90 * 24 * 3600);
+$min = $now - (210 * 24 * 3600);
 
 $cacheDir = dirname(dirname(__FILE__)) . '/csscache';
 
@@ -57,5 +55,6 @@ foreach ($fileArray as $file) {
         }
     }
 }
+exit;
 
 ?>

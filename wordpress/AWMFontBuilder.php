@@ -126,7 +126,7 @@ if (! class_exists('AWMFontBuilder')) {
             $safeWeights = array();
             $family = trim($family);
             
-            $fontstring = preg_replace('/\s+/','+',$family);
+            $fontstring = preg_replace('/\s+/', '+', $family);
         
             if (count($weights) > 0) {
                 foreach ($weights as $weight) {
@@ -267,6 +267,7 @@ if (! class_exists('AWMFontBuilder')) {
             }
         }//end __construct()
     }//end class
+
 }
 
 ?>

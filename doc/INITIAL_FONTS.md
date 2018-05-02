@@ -2,8 +2,28 @@ Initial Fonts
 =============
 
 This font server comes with a small set of initial fonts, about 30MB worth.
+The size will grow as some international versions of the Google Noto fonts are
+added.
+
+Please note that you can add additional fonts, and that the
+`fonts.trippyid.com` service will have many additional fonts.
 
 The following families are included with this server:
+
+* [Inconsolata](#inconsolata)
+* [Libre Franklin](#libre-franklin)
+* [Merriweather](#merriweather)
+* [Montserrat](#montserrat)
+* [Montserrat Alternates](#montserrat-alternates)
+* [Noto Sans](#noto-sans)
+* [Noto Sans Condensed](#noto-sans-condensed)
+* [Noto Sans Semi Condensed](#noto-sans-semi-condensed)
+* [Noto Sans Extra Condensed](#noto-sans-extra-condensed)
+* [Noto Serif](#noto-serif)
+* [Noto Serif Condensed](#noto-serif-condensed)
+* [Noto Serif Semi Condensed](#noto-serif-semi-condensed)
+* [Noto Serif Extra Condensed](#noto-serif-extra-condensed)
+* [Noto Mono](#noto-mono)
 
 
 Inconsolata

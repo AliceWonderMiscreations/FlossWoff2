@@ -61,11 +61,14 @@ if (function_exists('idn_to_ascii')) {
 }
 
 // NOTE - if there is a problem of webmasters intentionally creating
-//  static CSS files to bypass this test, I will create a wrapper to
-//  serving the fonts that also checks. However since all fonts are
-//  free from Google Fonts, I suspect webmasters who don't want to
-//  pay for my bandwidth will just use Google Fonts. It is doubtful
-//  those kind of webmaster care about the privacy of their users.
+//  static CSS files to bypass this test, simply use a mod_rewrite
+//  rule to blacklist requests from that referrer - e.g.
+//
+//  RewriteCond %{HTTP_REFERER} ^http://(www\.)?badwidththief\.net [NC]
+//  RewriteRule \.(woff|woff2)$ - [F,NC]
+//
+// Above not actually tested. But something like that should work.
+
 $servecss = true;
 if (strlen($referrer_host) > 0) {
     $expires = $cache->get('exdate-' . $referrer_host);

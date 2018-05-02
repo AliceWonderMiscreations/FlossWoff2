@@ -202,7 +202,7 @@ Garbage Collection
 ------------------
 
 Over time, stale cached CSS files will build up. Please see the documentation
-for [File Cache Maintenance](../utilities/utilities#file-cache-maintenance)
+for [File Cache Maintenance](../utilities#file-cache-maintenance)
 for instructions on how to automate cleanup of old stale cache files.
 
 

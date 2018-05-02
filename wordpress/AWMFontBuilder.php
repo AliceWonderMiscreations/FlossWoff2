@@ -6,7 +6,7 @@ declare(strict_types=1);
  * Plugin URI:   https://gist.github.com/AliceWonderMiscreations/b0071e48a27a536142ce38bf6868336b
  * Description:  Provides a class theme developers can use to build a Google
  *               Webfont URI
- * Version:      0.82
+ * Version:      0.83
  * Requires PHP: 7.0
  * Author:       AliceWonderMiscreations
  * Author URI:   https://eroticaplexus.net/
@@ -108,6 +108,53 @@ if (! class_exists('AWMFontBuilder')) {
             }
             return 400;
         }//end weightToNumeric()
+        
+        /**
+         * Takes a Google Fonts compatible family string and returns parameters
+         * that can be used with the setFont() method.
+         *
+         * @param string $fontstring The string to parse.
+         *
+         * @return array An array with three elements corresponding to font family (string),
+         *               requested font weights (array), and whether or not italic variant
+         *               is requested.
+         */
+        public static function parseFontParameters(string $fontstring): array
+        {
+            $params = array();
+            $weights = array();
+            $italic = false;
+            $arr = explode(':', $fontstring);
+            $family = $arr[0];
+            if (count($arr) > 1) {
+                $params = explode(',', $arr[1]);
+            }
+            foreach ($params as $param) {
+              // check for italic
+                $param = strtolower($param);
+                $test = substr($param, -3);
+                if ($test === '00i') {
+                    $italic = true;
+                    $param = preg_replace('/00i$/', '00', $param);
+                }
+                if (substr_count($param, 'italic') > 0) {
+                    $italic = true;
+                    $param = preg_replace('/italic/', '', $param);
+                }
+                if (is_numeric($param)) {
+                    $param = intval($param);
+                } else {
+                    $param = self::weightToNumeric($param);
+                }
+                if (! in_array($param, $weights)) {
+                    $weights[] = $param;
+                }
+            }
+            // sort the weights
+            asort($weights);
+            $return = array($family, $weights, $italic);
+            return $return;
+        }//end parseFontParameters()
 
         /**
          * Builds a font string.
@@ -118,7 +165,7 @@ if (! class_exists('AWMFontBuilder')) {
          * @param bool   $italic  Optional. Whether or not to request webfont for
          *                        the italic variant. Defaults to true.
          *
-         * @return void.
+         * @return void
          */
         public function setFont(string $family, array $weights = array(), bool $italic = true): void
         {

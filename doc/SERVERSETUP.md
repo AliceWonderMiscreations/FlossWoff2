@@ -140,8 +140,62 @@ secure your certificate.
 Add Allowed Referrer Domains
 ----------------------------
 
-The utility to do this still needs to be written. For now the code in the
-`ServeStyle.php` that enforces the referrer is both untested and not used.
+The font server will refuse to serve the CSS file that defines fonts if the
+requesting client sends a HTTP referer header containing a hostname that is not
+white listed as allowed to use the font server.
+
+This is done because I simply can not afford afford it, I am what people call
+extremely poor. Lower class. And if you are an asshole, then clearly I am a
+lazy bum who brought it on myself, it has nothing to do with circumstances that
+are beyond my control. But anyway, I simply can not afford to pay for the
+bandwidth commercial companies that profit will use if they use my font server.
+So I will be charging a bandwidth fee to allow people to use my font server
+with their web applications.
+
+If running this font server on your own, you will need to maintain your own
+white list of domains that are allowed to reference your font server when they
+send a web page to a requesting client.
+
+Copy the file `ReferrerWhitelist.dist.json` to `ReferrerWhitelist.json` and
+then edit the file to specify the hostnames allowed to use your font server as
+well as an expiration date for when they are no longer allowed to. If you do
+not ever want permission for a given hostname to expire, just use a date far
+off in the future, e.g. in the year 2112.
+
+The `hostname` parameter must be a valid hostname. The `expires` parameter must
+be a date that the PHP `strtotime()` function knows what to do with.
+
+From within the `FlossWoff2` directory run the command:
+
+    php utilities/loadReferrerWhitelist.php
+
+That will load the entries from the JSON flat file into the Redis database
+cache.
+
+### Important Note
+
+Whenever you change the `hexkey`, `prefix`, or `salt` configuration parameter
+in your `FONTSERVECACHE.json` file you __must__ run the
+`utilities/loadReferrerWhitelist.php` utility again. Changing any of those
+parameters has the equivalent effect of deleting the Redis cache.
+
+### Removing a Host From the Whitelist
+
+To remove a host from the whitelist, first make sure that the hostname has been
+removed from the `ReferrerWhitelist.json` file so that it does not accidentally
+get added again. Then run the following utility from within the `FlossWoff2`
+directory:
+
+    php utilities/remove_referrer.php whatever.com
+
+where `whatever.com` is the hostname to be deleted.
+
+Please note that the `utilities/loadReferrerWhitelist.php` utility only adds
+hosts with an expiration date in the future and that the `ServeStyle.php`
+script that generates a CSS file will automatically remove any host with an
+expiration date three weeks in the past, so you do not need to do anything
+special when you want a host removed automatically as long as the expiration
+date was properly set.
 
 
 Adding Fonts

@@ -64,7 +64,10 @@ $cache = new SimpleCache($redis, $config);
 
 foreach ($whitelist as $white) {
     if (isset($white->hostname)) {
-        $hostname = $white->hostname;
+        $hostname = trim(strtolower($white->hostname));
+        if (function_exists('idn_to_ascii')) {
+            $hostname = idn_to_ascii($hostname);
+        }
         if (isset($white->expires)) {
             $expires = $white->expires;
             if ($time = strtotime($expires)) {

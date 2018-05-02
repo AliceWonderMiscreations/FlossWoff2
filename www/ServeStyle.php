@@ -54,6 +54,9 @@ if (isset($_SERVER['HTTP_REFERER'])) {
     }
 }
 $referrer_host = strtolower($referrer_host);
+if (function_exists('idn_to_ascii')) {
+    $referrer_host = idn_to_ascii($referrer_host);
+}
 
 // NOTE - if there is a problem of webmasters intentionally creating
 //  static CSS files to bypass this test, I will create a wrapper to
@@ -77,7 +80,7 @@ if (strlen($referrer_host) > 0) {
 }
 // commented out for testing
 
-if(! $servecss) {
+if (! $servecss) {
     header('HTTP/1.0 402 Payment Required');
     exit;
 }

@@ -76,12 +76,11 @@ if (strlen($referrer_host) > 0) {
     }
 }
 // commented out for testing
-/*
+
 if(! $servecss) {
     header('HTTP/1.0 402 Payment Required');
     exit;
 }
-*/
 
 // okay, we can attempt to fulfill the request.
 $requri = $_SERVER['QUERY_STRING'];

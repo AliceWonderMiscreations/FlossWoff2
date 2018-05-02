@@ -56,7 +56,9 @@ if (isset($_SERVER['HTTP_REFERER'])) {
 $referrer_host = strtolower($referrer_host);
 error_log('foo: ' . $referrer_host);
 if (function_exists('idn_to_ascii')) {
-    $referrer_host = idn_to_ascii($referrer_host);
+    if (! $referrer_host = idn_to_ascii($referrer_host)) {
+        $referrer_host = '';
+    }
     error_log('bar: ' . $referrer_host);
 }
 

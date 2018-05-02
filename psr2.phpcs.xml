@@ -38,6 +38,7 @@
   <description>The coding standard for AWonderPHP</description>
   <file>www</file>
   <file>wordpress</file>
+  <file>utilities</file>
   <arg name="basepath" value="." />
   <arg name="colors" />
   <rule ref="PSR2">

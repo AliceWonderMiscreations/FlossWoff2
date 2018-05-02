@@ -1,0 +1,12 @@
+{
+    "whitelist": [
+        {
+            "hostname": "example.org",
+            "expires": "January 29, 2112"
+        },
+        {
+            "hostname": "somewhere.net",
+            "expires": "04-12-2019"
+        }
+    ]
+}

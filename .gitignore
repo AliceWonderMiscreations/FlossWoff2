@@ -2,5 +2,6 @@
 *.bak
 composer.lock
 FONTSERVECACHE.json
+ReferrerWhitelist.json
 phpcs.xml
 vendor/*

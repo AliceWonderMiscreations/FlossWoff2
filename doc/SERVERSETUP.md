@@ -198,6 +198,14 @@ special when you want a host removed automatically as long as the expiration
 date was properly set.
 
 
+Garbage Collection
+------------------
+
+Over time, stale cached CSS files will build up. Please see the documentation
+for [File Cache Maintenance](../utilities/utilities#file-cache-maintenance)
+for instructions on how to automate cleanup of old stale cache files.
+
+
 Adding Fonts
 ------------
 

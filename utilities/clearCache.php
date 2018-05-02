@@ -3,7 +3,7 @@
 declare(strict_types = 1);
 
 /**
- * Utility to remove host from white list of domains that are allowed to use the font server.
+ * Utility to clear the Redis database cache.
  *
  * @package AWonderPHP/FlossWoff2
  * @author  Alice Wonder <paypal@domblogger.net>

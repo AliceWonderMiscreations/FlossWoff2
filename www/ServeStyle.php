@@ -59,7 +59,8 @@ $referrer_host = strtolower($referrer_host);
 //  static CSS files to bypass this test, I will create a wrapper to
 //  serving the fonts that also checks. However since all fonts are
 //  free from Google Fonts, I suspect webmasters who don't want to
-//  pay for my mirror will use them rather than be sneaky.
+//  pay for my bandwidth will just use Google Fonts. It is doubtful
+//  those kind of webmaster care about the privacy of their users.
 $servecss = true;
 if (strlen($referrer_host) > 0) {
     $expires = $cache->get('exdate-' . $referrer_host);

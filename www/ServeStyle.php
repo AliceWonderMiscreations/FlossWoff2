@@ -54,12 +54,10 @@ if (isset($_SERVER['HTTP_REFERER'])) {
     }
 }
 $referrer_host = strtolower($referrer_host);
-error_log('foo: ' . $referrer_host);
 if (function_exists('idn_to_ascii')) {
     if (! $referrer_host = idn_to_ascii($referrer_host)) {
         $referrer_host = '';
     }
-    error_log('bar: ' . $referrer_host);
 }
 
 // NOTE - if there is a problem of webmasters intentionally creating

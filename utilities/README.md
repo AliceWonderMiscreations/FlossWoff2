@@ -93,8 +93,25 @@ sure the host is also deleted from the `ReferrerWhitelist.json` file.
 Clear Redis Cache
 -----------------
 
-Not yet written but will be a few lines without arguments.
+The `clearCache.php` command line script will completely empty the Redis
+database cache. If you happen to be using Redis on the host for other things,
+it should not impact those other things, it should only clear the entries
+related to the Font Server. However no warranties or guarantees are given.
 
+You probably will never need to run this utility, but if you frequently
+regenerate the `FONTSERVECACHE.json` file (which there is no reason to do)
+then over time, whitelist records that are useless but never expire can build
+up.
 
+### Usage
 
+This utility does not take any arguments. To run it, from the command line:
 
+    php utilities/clearCache.php
+
+All cache entries in the `FONTSERVECACHE` web-app namespace will be cleared.
+
+### WARNING
+
+After running this command, your whitelist will be nuked, so be sure to then
+immediately run the `loadReferrerWhitelist.php` utility to repopulate it.

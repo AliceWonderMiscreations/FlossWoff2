@@ -1,0 +1,42 @@
+diff -ur zenwind.orig/functions.php zenwind/functions.php
+--- zenwind.orig/functions.php	2018-05-02 15:49:32.693562230 -0700
++++ zenwind/functions.php	2018-05-02 17:00:05.305820173 -0700
+@@ -109,7 +109,22 @@
+ 		) );
+ 	}
+ endif; // zenwind_setup
+-add_action( 'after_setup_theme', 'zenwind_setup' );
++add_action( 'after_setup_theme', 'zenwind_setup' );
++
++// better way of doing it
++if (! function_exists('new_zenwind_fonts_url')) :
++if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++    function new_zenwind_fonts_url() {
++        $questrial = _x( 'on', 'Dosis font: on or off', 'zenwind' );
++        if ( 'off' !== $questrial ) {
++            $webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++            // zenwind does not specify any weights and Dosis does not have italic
++            $webfontGenerator->setFont('Dosis',array(),false);
++            $webfontGenerator->addWebfontToHead('zenwind');
++        }
++    }
++}
++endif;
+ 
+ if ( ! function_exists( 'zenwind_fonts_url' ) ) :
+ 	/**
+@@ -157,8 +172,12 @@
+ 			get_template_directory_uri() . '/assets/css/animate.css', array( ) );
+ 
+ 		wp_enqueue_style( 'zenwind-style', get_stylesheet_uri(), array() );
+-		
+-		wp_enqueue_style( 'zenwind-fonts', zenwind_fonts_url(), array(), null );
++		
++		if(function_exists('new_zenwind_fonts_url')) {
++			new_zenwind_fonts_url();
++		} else {
++			wp_enqueue_style( 'zenwind-fonts', zenwind_fonts_url(), array(), null );
++		}
+ 		
+ 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+ 

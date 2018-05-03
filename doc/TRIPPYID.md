@@ -1,5 +1,5 @@
-The TrippyId Font Server
-========================
+The TrippyId WebFont Service
+============================
 
 Introduction
 ------------
@@ -56,9 +56,9 @@ Here is what you get with a similar simple query to Google Fonts:
 [https://fonts.googleapis.com/css?family=LibreFranklin|Merriweather|Inconsolata](https://fonts.googleapis.com/css?family=Libre+Franklin|Merriweather|Inconsolata)
 
 Notice Google only makes the fonts available in the 400 (Regular) weight, even
-though they have far more available. To use additional weights with Google
+though there are many more available. To use additional weights with Google
 Fonts you have to explicitly tell it what font weights you want, and whether
-or not you want that in italics. That makes for some very long very complex
+or not you want them in italics. That makes for some very long very complex
 query strings within your `<link />` tag for anything but the most basic uses.
 
 
@@ -182,7 +182,7 @@ Server Stability
 ----------------
 
 Google has tons of money and tons of servers, they own large portions of the
-Internet backbone. Their fonts servers are fast and always will be fast.
+Internet backbone. Their font servers are fast and always will be fast.
 
 If you use Fonts.TrippyId.com for fonts, some of your users will take a hit on
 page load performance.
@@ -196,11 +196,12 @@ users may notice initial page jumpiness as the fonts take slightly longer to
 download, especially users that are geographically far from the closest server.
 
 Google also has staff 24/7 to deal with unexpected outages. Me, I have epilepsy
-and have seizures if I do not get enough sleep.
+and do not have medical insurance and can not afford to see a doctor or pay for
+medication, so I have seizures if I do not get enough sleep.
 
 I do have scripts running on the servers that restart things if the server
 crashes, which never happens, but I can not have the kind of stability Google
-has.
+has and there is the chance of a problem I can not quickly address.
 
 
 Font Selection
@@ -208,7 +209,7 @@ Font Selection
 
 Google has a very large catalog of fonts that are instantly available. I can
 certainly add any font they have that is needed, but adding a font is never an
-instant thing.
+instant thing for Fonts.TrippyId.com.
 
 Updates to fonts are also not going to be available as quickly. For the vast
 majority of users, that does not ever really matter. But when it does matter,

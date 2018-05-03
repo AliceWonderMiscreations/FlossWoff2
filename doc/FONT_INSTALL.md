@@ -105,8 +105,8 @@ For example, this is the header I used for the Dosis font family:
 I believe it is good to have that kind of transparency available to users who
 want to know that information.
 
-Each version of the font needs to have a CSS `@font-face` parameter defining
-the family, and here is where something special is done.
+Each variant of the font needs to have a CSS `@font-face` parameter defining
+the variant, and here is where something special is done.
 
 An example from the Dosis family:
 
@@ -137,6 +137,10 @@ Within the `url()` source, notice the domain is defined as:
 It is important to use that exact string. The `ServeStyle.php` script that
 creates the CSS file for the end user will replace that string with the actual
 domain name the font server is running from.
+
+After the `url()` declaration it is important to have `format('woff2')` so that
+browsers that do support WOFF2 (vast majority) know they can use it, and the
+few browsers that do not support it know not to waste bandwidth downloading it.
 
 To see the raw CSS file with `webfonts.replaceme.com` as the domain:
 

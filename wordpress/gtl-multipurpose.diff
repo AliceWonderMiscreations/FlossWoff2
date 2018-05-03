@@ -33,7 +33,7 @@ diff -ur gtl-multipurpose.orig/inc/template-tags.php gtl-multipurpose/inc/templa
 +        $parsed = $webfontGenerator->parseFontParameters($string);
 +        $family = trim($parsed[0]);
 +        $weights = $parsed[1];
-+        $italic = $parsed[2]
++        $italic = $parsed[2];
 +        if(strlen($family) > 0) {
 +          $webfontGenerator->setFont($family, $weights, $italic);
 +          $familyAdded++;

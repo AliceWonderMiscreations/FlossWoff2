@@ -1,6 +1,9 @@
 Font Installation
 =================
 
+This page is for those running this font server themselves. If you are using
+my fonts.trippyid.com service, pless see NoTyEtWrItTeN.
+
 The fonts that come bundled with this git repository are a very limited set of
 very commonly used fonts. They exist primarily for the purpose of allowing a
 ‘vanilla’ WordPress install with nothing added except for the `AWMFontBuilder`
@@ -8,6 +11,12 @@ plugin and the patched twenty-something themes to work with the font server.
 
 Anyone who is running this font server is going to want to add additional some
 additional fonts, and probably quite a few.
+
+* [Step One - Locate the Source for the Font](#step-one---locate-the-source-for-the-font)
+* [Step Two - Compress to WOFF2](#step-two---compress-to-woff2)
+* [Step Three - Create a Directory for the Font](#step-three---create-a-directory-for-the-font)
+* [Step Four - Create a Static CSS File](#step-four---create-a-static-css-file)
+* [Step Five - Upload the Fonts and Update the Font Server](#step-five---upload-the-fonts-and-update-the-font-server)
 
 
 Step One - Locate the Source for the Font

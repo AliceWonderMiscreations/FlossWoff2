@@ -129,34 +129,49 @@ It is important to use that exact string. The `ServeStyle.php` script that
 creates the CSS file for the end user will replace that string with the actual
 domain name the font server is running from.
 
-To see what the result looks like:
+To see the raw CSS file with `webfonts.replaceme.com` as the domain:
+
+[https://fonts.trippyid.com/Dosis/webfont.css](https://fonts.trippyid.com/Dosis/webfont.css)
+
+To see what the result looks like after processing:
 
 [https://fonts.trippyid.com/css?family=Dosis](https://fonts.trippyid.com/css?family=Dosis)
 
+To see what the result looks like when combined with another font:
+
+[https://fonts.trippyid.com/css?family=Dosis|Libre+Franklin](https://fonts.trippyid.com/css?family=Dosis|Libre+Franklin)
 
 
+Step Five - Upload the Fonts and Update the Font Server
+-------------------------------------------------------
 
+Place the directory within the `www/` directory of the font server, and then
+modify (or create if first time) the `phpinc/additionalFonts.php` file. Note
+that `phpinc` is _NOT_ inside `www` but is in the root `FlossWoff2` directory.
 
+The `additionalFonts.php` file should look something like this:
 
+    <?php
+    // Doris
+    $fontFamilyStatic['dosis'] = '/Dosis/webfont.css';
 
+The font family being added as the array key needs to be completely lower case
+without any spaces. Going back to the Comic Sans MS example, it would be
+defined as:
 
+    $fontFamilyStatic['comicsansms'] = '/ComicSansMS/webfont.css';
 
+The value part of the `key => value` array assignment is the path to the static
+CSS file within the `www` directory, starting with a leading `/`.
 
+That's it, your font server should be able to serve the font.
 
+Please follow licensing guidelines, do not serve commercial fonts unless you
+have a license to serve that font and are following the licensing guidelines.
 
+While I love all the free fonts out there, Google making them so widely
+accessible is having a financial impact on many very talented artists who are
+losing license revenue as a result while Google continues to profit from the
+advertisement revenue they get as a result of their privacy invasive tracking.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+When you do use commercial fonts, pay for them, please.

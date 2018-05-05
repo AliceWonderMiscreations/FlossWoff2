@@ -9,7 +9,7 @@ declare(strict_types=1);
  * Version:      0.83
  * Requires PHP: 7.0
  * Author:       AliceWonderMiscreations
- * Author URI:   https://eroticaplexus.net/
+ * Author URI:   https://notrackers.com/
  * License:      MIT or GPL2
  * License URI:  https://opensource.org/licenses/MIT
  *

@@ -7,6 +7,6 @@
  * @license https://opensource.org/licenses/MIT MIT
  * @link    https://github.com/AliceWonderMiscreations/FlossWoff2
  */
-header('Location: https://eroticaplexus.net/index.php/fonts-and-trackers/');
+header('Location: https://notrackers.com/');
 exit;
 ?>

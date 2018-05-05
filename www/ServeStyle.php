@@ -114,14 +114,32 @@ if (isset($_GET['family'])) {
 
 $fontFamilies = array();
 
-$biggarray = explode('|', $family);
-foreach ($biggarray as $famstring) {
-    $arr = explode(':', $famstring);
-    $fam = strtolower(trim($arr[0]));
-    $fam = preg_replace('/\s+/', '', $fam);
-    if (strlen($fam) > 0) {
-        if (! in_array($fam, $fontFamilies)) {
-            $fontFamilies[] = $fam;
+$googleapi = true;
+if((substr_count($family, '|') === 0) && (substr_count($family, ':') === 0) {
+    $googleapi = false;
+}
+
+if($googleapi) {
+    $biggarray = explode('|', $family);
+    foreach ($biggarray as $famstring) {
+        $arr = explode(':', $famstring);
+        $fam = strtolower(trim($arr[0]));
+        $fam = preg_replace('/\s+/', '', $fam);
+        if (strlen($fam) > 0) {
+            if (! in_array($fam, $fontFamilies)) {
+                $fontFamilies[] = $fam;
+            }
+        }
+    }
+} else {
+    $biggarray = explode(',', $family);
+    foreach ($biggarray as $famstring) {
+        $fam = strtolower($famstring);
+        $fam = preg_replace('/\s+/', '', $fam);
+        if (strlen($fam) > 0) {
+            if (! in_array($fam, $fontFamilies)) {
+                $fontFamilies[] = $fam;
+            }
         }
     }
 }

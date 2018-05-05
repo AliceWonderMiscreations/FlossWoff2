@@ -12,112 +12,112 @@
 
 /* upright */
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 100;
-  src: local('Noto Serif Semi Condensed Thin'), local('NotoSerif-SemiCondensedThin'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedThin.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Thin'), local('NotoSerif-SemiCondensedThin'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedThin.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 200;
   src: local('Noto Serif Semi Condensed ExtraLight'), local('NotoSerif-SemiCondensedExtraLight'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraLight.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 300;
-  src: local('Noto Serif Semi Condensed Light'), local('NotoSerif-SemiCondensedLight'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedLight.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Light'), local('NotoSerif-SemiCondensedLight'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedLight.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 400;
-  src: local('Noto Serif Semi Condensed'), local('NotoSerif-SemiCondensed'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensed.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed'), local('NotoSerif-SemiCondensed'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensed.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 500;
-  src: local('Noto Serif Semi Condensed Medium'), local('NotoSerif-SemiCondensedMedium'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedMedium.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Medium'), local('NotoSerif-SemiCondensedMedium'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedMedium.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 600;
-  src: local('Noto Serif Semi Condensed SemiBold'), local('NotoSerif-SemiCondensedSemiBold'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedSemiBold.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed SemiBold'), local('NotoSerif-SemiCondensedSemiBold'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedSemiBold.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 700;
-  src: local('Noto Serif Semi Condensed Bold'), local('NotoSerif-SemiCondensedBold'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBold.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Bold'), local('NotoSerif-SemiCondensedBold'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBold.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: normal;
   font-weight: 800;
-  src: local('Noto Serif Semi Condensed ExtraBold'), local('NotoSerif-SemiCondensedExtraBold'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraBold.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed ExtraBold'), local('NotoSerif-SemiCondensedExtraBold'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraBold.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 900;
-  src: local('Noto Serif Semi Condensed Black'), local('NotoSerif-SemiCondensedBlack'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBlack.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Black'), local('NotoSerif-SemiCondensedBlack'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBlack.woff2) format('woff2');
 }
 
 /* italic */
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 100;
-  src: local('Noto Serif Semi Condensed Thin Italic'), local('NotoSerif-SemiCondensedThinItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedThinItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Thin Italic'), local('NotoSerif-SemiCondensedThinItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedThinItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 200;
-  src: local('Noto Serif Semi Condensed ExtraLight Italic'), local('NotoSerif-SemiCondensedExtraLightItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraLightItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed ExtraLight Italic'), local('NotoSerif-SemiCondensedExtraLightItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraLightItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 300;
-  src: local('Noto Serif Semi Condensed Light Italic'), local('NotoSerif-SemiCondensedLightItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedLightItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Light Italic'), local('NotoSerif-SemiCondensedLightItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedLightItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 400;
-  src: local('Noto Serif Semi Condensed Italic'), local('NotoSerif-SemiCondensedItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Italic'), local('NotoSerif-SemiCondensedItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 500;
-  src: local('Noto Serif Semi Condensed Medium Italic'), local('NotoSerif-SemiCondensedMediumItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedMediumItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Medium Italic'), local('NotoSerif-SemiCondensedMediumItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedMediumItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 600;
-  src: local('Noto Serif Semi Condensed SemiBold Italic'), local('NotoSerif-SemiCondensedSemiBoldItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedSemiBoldItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed SemiBold Italic'), local('NotoSerif-SemiCondensedSemiBoldItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedSemiBoldItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 700;
-  src: local('Noto Serif Semi Condensed Bold Italic'), local('NotoSerif-SemiCondensedBoldItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBoldItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Bold Italic'), local('NotoSerif-SemiCondensedBoldItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBoldItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 800;
-  src: local('Noto Serif Semi Condensed ExtraBoldItalic'), local('NotoSerif-SemiCondensedExtraBoldItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraBoldItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed ExtraBoldItalic'), local('NotoSerif-SemiCondensedExtraBoldItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedExtraBoldItalic.woff2) format('woff2');
 }
 @font-face {
-  font-family: 'Noto Serif Semi Condensed';
+  font-family: 'Noto Serif SemiCondensed';
   font-style: italic;
   font-weight: 900;
-  src: local('Noto Serif Semi Condensed Black Italic'), local('NotoSerif-SemiCondensedBlackItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBlackItalic.woff2) format('woff2');
+  src: local('Noto Serif SemiCondensed Black Italic'), local('NotoSerif-SemiCondensedBlackItalic'), url(https://webfonts.replaceme.com/NotoSerif/20171024/NotoSerif-SemiCondensedBlackItalic.woff2) format('woff2');
 }

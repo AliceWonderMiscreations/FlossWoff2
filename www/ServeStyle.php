@@ -115,11 +115,11 @@ if (isset($_GET['family'])) {
 $fontFamilies = array();
 
 $googleapi = true;
-if((substr_count($family, '|') === 0) && (substr_count($family, ':') === 0)) {
+if ((substr_count($family, '|') === 0) && (substr_count($family, ':') === 0)) {
     $googleapi = false;
 }
 
-if($googleapi) {
+if ($googleapi) {
     $biggarray = explode('|', $family);
     foreach ($biggarray as $famstring) {
         $arr = explode(':', $famstring);

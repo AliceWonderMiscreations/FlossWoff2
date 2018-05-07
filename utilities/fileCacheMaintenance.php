@@ -15,7 +15,7 @@ declare(strict_types = 1);
  */
 
 $uid = posix_getuid();
-if($uid === 0) {
+if ($uid === 0) {
     echo "Do not run this as r00t, you t00l!\n";
     exit(1);
 }

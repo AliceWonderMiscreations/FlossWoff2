@@ -1,13 +1,23 @@
 WordPress README
 ================
 
-Place the file `AWMFontBuilder.php` within your “Must Use” plugin directory.
+Place the file `wp-autoload.php` within your “Must Use” plugin directory.
 
 Usually this is `wp-content/mu-plugins` unless you have specifically changed
 it. You may have to create the directory, it does not exist by default.
 
 Plugins in that directory do not need to be activated, just by being there they
 are loaded and loaded *before* standard plugins and themes.
+
+The `wp-autoload.php` class adds PSR-4 class autoloading to WordPress, which is
+currently missing from WordPress (until you install that file).
+
+Create a directory for the class to be autoloaded from. It needs to use the
+following structure for the autoloader to find it:
+
+    wp-content/wp-psr4/AWonderPHP/AWMFontBuilder/
+
+Place the file `AWMFontBuilder.php` within that directory.
 
 In your `wp-config.php` file, add the following line:
 

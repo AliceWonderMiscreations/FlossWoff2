@@ -7,9 +7,9 @@ diff -ur twentyseventeen.orig/functions.php twentyseventeen/functions.php
  
 +// better way of doing it
 +if (! function_exists('new_twentyseventeen_fonts_url')) :
-+if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++if (class_exists('\AWonderPHP\AWMFontBuilder')) {
 +	function new_twentyseventeen_fonts_url() {
-+		$webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++		$webfontGenerator = new \AWonderPHP\AWMFontBuilder();
 +		$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'twentyseventeen' );
 +		if ( 'off' !== $libre_franklin ) {
 +			$webfontGenerator->setFont('Libre+Franklin', array(300,400,600,800));

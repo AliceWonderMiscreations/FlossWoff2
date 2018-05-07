@@ -22,10 +22,10 @@ diff -ur gtl-multipurpose.orig/inc/template-tags.php gtl-multipurpose/inc/templa
   */
  
 +if (! function_exists( 'new_gtl_multipurpose_get_font' )) :
-+if(class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++if(class_exists('\AWonderPHP\AWMFontBuilder')) {
 +  function new_gtl_multipurpose_get_font() {
 +    $familyAdded = 0;
-+    $webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++    $webfontGenerator = new \AWonderPHP\AWMFontBuilder();
 +    $font = esc_attr(get_theme_mod('body_font_name'));
 +    if($font) {
 +      $familyStrings = explode('|', $font);

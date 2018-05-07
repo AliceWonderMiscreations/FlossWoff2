@@ -7,9 +7,9 @@ diff -ur twentyfifteen.orig/functions.php twentyfifteen/functions.php
  
 +// better way of doing it
 +if (! function_exists('new_twentyfifteen_fonts_url')) :
-+if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++if (class_exists('\AWonderPHP\AWMFontBuilder')) {
 +	function new_twentyfifteen_fonts_url() {
-+		$webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++		$webfontGenerator = new \AWonderPHP\AWMFontBuilder();
 +		if ( 'off' !== _x( 'on', 'Noto Sans font: on or off', 'twentyfifteen' ) ) {
 +			$webfontGenerator->setFont('Noto+Sans', array(400,700));
 +		}

@@ -7,9 +7,9 @@ diff -ur twentysixteen.orig/functions.php twentysixteen/functions.php
  
 +// better way of doing it
 +if (! function_exists('new_twentysixteen_fonts_url')) :
-+if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++if (class_exists('\AWonderPHP\AWMFontBuilder')) {
 +	function new_twentysixteen_fonts_url() {
-+		$webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++		$webfontGenerator = new \AWonderPHP\AWMFontBuilder();
 +		if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'twentysixteen' ) ) {
 +			$webfontGenerator->setFont('Merriweather', array(400,700,900));
 +		}

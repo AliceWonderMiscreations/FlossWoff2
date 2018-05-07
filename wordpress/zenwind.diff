@@ -10,11 +10,11 @@ diff -ur zenwind.orig/functions.php zenwind/functions.php
 +
 +// better way of doing it
 +if (! function_exists('new_zenwind_fonts_url')) :
-+if (class_exists('\AWonderPHP\WebfontBuilder\AWMFontBuilder')) {
++if (class_exists('\AWonderPHP\AWMFontBuilder')) {
 +    function new_zenwind_fonts_url() {
 +        $questrial = _x( 'on', 'Dosis font: on or off', 'zenwind' );
 +        if ( 'off' !== $questrial ) {
-+            $webfontGenerator = new \AWonderPHP\WebfontBuilder\AWMFontBuilder();
++            $webfontGenerator = new \AWonderPHP\AWMFontBuilder();
 +            // zenwind does not specify any weights and Dosis does not have italic
 +            $webfontGenerator->setFont('Dosis',array(),false);
 +            $webfontGenerator->addWebfontToHead('zenwind');
